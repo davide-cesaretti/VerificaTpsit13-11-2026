@@ -1,4 +1,4 @@
-from pannello.py import PannelloFotovoltaico
+from Pannello import PannelloFotovoltaico
 
 class ImpiantoSolare:
     def __init__(self, codice:str, modello:str, localita:str, potenza_massima_kw: float, stato:str, pannelli: list[PannelloFotovoltaico]):
@@ -10,7 +10,7 @@ class ImpiantoSolare:
         self.pannelli = pannelli
         
     
-def aggiungi_pannello(self, pannello: PannelloFotovoltaico) -> None :
+    def aggiungi_pannello(self, pannello: PannelloFotovoltaico) -> None :
         valid = True
         for p in self.pannelli:
             if p.codice == pannello.codice:
@@ -33,7 +33,7 @@ def aggiungi_pannello(self, pannello: PannelloFotovoltaico) -> None :
         return somma
     
     def cerca_pannello(self, codice:str):
-        return[pannello for pannello in self.pannelli if pannello.codice == codice else None]
+        return[pannello in self.pannelli if pannello.codice == codice else None]
     
     def rimuovi_pannello(self, codice:str):
         for p in self.pannelli:
